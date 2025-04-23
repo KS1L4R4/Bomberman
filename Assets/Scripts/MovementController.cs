@@ -15,7 +15,7 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if ((inputManager.moveDir.magnitude != 0))
+        if (inputManager.moveDir.magnitude != 0)
         {
             transform.forward = new Vector3(inputManager.moveDir.x, 0, inputManager.moveDir.y);
             characterController.Move(transform.forward * speed * Time.deltaTime);
