@@ -134,6 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDir: {x: 0, y: 0}
+  OnBombPressed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!143 &6396944530060904160
 CharacterController:
   m_ObjectHideFlags: 0
@@ -171,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bad039eba4ca3a4b8eb81a76eedc99d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 5
 --- !u!1 &8023067446664209438
 GameObject:
   m_ObjectHideFlags: 0
