@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -80,5 +81,10 @@ public class Bomb : MonoBehaviour
     public void DisableObject()
     {
         gameObject.SetActive(false);
+    }
+
+    public void SetBombRange(int range)
+    {
+        this.range = range * gridOffset;
     }
 }
