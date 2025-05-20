@@ -1,7 +1,7 @@
 using Unity.Multiplayer.Center.Common;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class InputManager : MonoBehaviour
 {
@@ -11,12 +11,14 @@ public class InputManager : MonoBehaviour
 
     [HideInInspector] public UnityEvent OnBombPressed;
 
-    void Start()
+    public void OnAttack(CallbackContext context)
     {
-        actions = new InputSystem_Actions();
-        actions.Enable();
-        actions.Player.Move.performed += i => moveDir = i.ReadValue<Vector2>();
-        actions.Player.Move.canceled += i => moveDir = Vector2.zero;
-        actions.Player.Attack.performed += i => OnBombPressed?.Invoke();
+        if (context.performed) OnBombPressed?.Invoke();
+    }
+
+    public void OnMove(CallbackContext context)
+    {
+        if (context.performed) moveDir = context.ReadValue<Vector2>();
+        else if (context.canceled) moveDir = Vector2.zero;
     }
 }
